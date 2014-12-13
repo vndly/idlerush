@@ -1,12 +1,13 @@
 package com.mauriciotogneri.idlerush.activities;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class GameActivity extends Activity
 		this.remainingTime = 600;
 		
 		this.totalCoins = 0;
-		this.rateCoins = 1;
+		this.rateCoins = 1234;
 		
 		updateUI();
 	}
@@ -57,19 +58,34 @@ public class GameActivity extends Activity
 	
 	private void updateUI()
 	{
+		NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+		
 		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
-		totalCoinsLabel.setText(String.valueOf(this.totalCoins));
+		totalCoinsLabel.setText(numberFormat.format(this.totalCoins));
 		
 		TextView rateCoinsLabel = (TextView)findViewById(R.id.rate_coins);
-		rateCoinsLabel.setText(String.valueOf(this.rateCoins) + " / seconds");
+		rateCoinsLabel.setText(numberFormat.format(this.rateCoins) + " / second");
 		
-		setTitle("  " + this.remainingTime);
+		long millis = this.remainingTime * 1000;
+		long hours = TimeUnit.MILLISECONDS.toHours(millis);
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis));
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
+		
+		setTitle("  " + String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds));
+		
+		if (this.remainingTime <= 0)
+		{
+			gameFinished();
+		}
+	}
+	
+	private void gameFinished()
+	{
+		stopCycleTask();
 	}
 	
 	private class Task implements Runnable
 	{
-		private long lastTime = System.nanoTime();
-		
 		@Override
 		public void run()
 		{
@@ -78,10 +94,6 @@ public class GameActivity extends Activity
 				@Override
 				public void run()
 				{
-					long currentTime = System.nanoTime();
-					Log.e("TEST", "TIME; " + (currentTime - Task.this.lastTime) / 1E9);
-					Task.this.lastTime = currentTime;
-					
 					update();
 				}
 			});

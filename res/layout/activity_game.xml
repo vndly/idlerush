@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:padding="8dp" >
 
         <TextView
             android:id="@+id/total_coins"
@@ -25,7 +25,7 @@
             android:id="@+id/rate_coins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:text="1,234 / second"
             android:textSize="14sp"
             android:textColor="@color/default_text_color"  />
