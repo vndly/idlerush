@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="123,456,789"
-            android:textSize="25sp"
-            android:textColor="@color/default_text_color" />
+            android:textColor="@color/default_text_color"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/rate_coins"
@@ -27,9 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:text="1,234 / second"
-            android:textSize="14sp"
-            android:textColor="@color/default_text_color"  />
-        
+            android:textColor="@color/default_text_color"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <View
@@ -50,26 +49,69 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp" >
+                android:orientation="horizontal"
+                android:padding="5dp" >
+
+                <ImageButton
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="#00000000"
+                    android:contentDescription="@string/image_description"
+                    android:paddingEnd="5dp"
+                    android:paddingLeft="0dp"
+                    android:paddingRight="5dp"
+                    android:paddingStart="0dp"
+                    android:src="@drawable/icon_cursor" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="123,456,789"
-                    android:textColor="@color/default_text_color"  />
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="15"
+                    android:textSize="45sp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginStart="0dp"
+                    android:gravity="center"
+                    android:textColor="@color/default_text_color" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1,234 / second"
-                    android:textColor="@color/default_text_color"  />
-                
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Cost: 234,567"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/default_text_color" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Total: 3,456 / sec"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/default_text_color" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Unit: 1,152 / sec"
+                        android:textSize="12sp"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/default_text_color" />
+                </LinearLayout>
             </LinearLayout>
 
-            <View
-                style="@style/view_separator" />
-            
+            <View style="@style/view_separator" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,21 +122,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="123,456,789"
-                    android:textColor="@color/default_text_color"  />
+                    android:textColor="@color/default_text_color" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="1,234 / second"
-                    android:textColor="@color/default_text_color"  />
-                
+                    android:textColor="@color/default_text_color" />
             </LinearLayout>
-            
-            <View
-                style="@style/view_separator" />
-            
+
+            <View style="@style/view_separator" />
         </LinearLayout>
-        
     </ScrollView>
 
 </LinearLayout>

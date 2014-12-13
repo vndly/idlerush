@@ -3,6 +3,8 @@
 
     <string name="app_name">IdleRush</string>
     
+    <string name="image_description"></string>
+    
     <string name="main_start_game">Start Game</string>
 
 </resources>

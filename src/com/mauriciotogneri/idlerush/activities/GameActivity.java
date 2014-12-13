@@ -23,6 +23,8 @@ public class GameActivity extends Activity
 	private long totalCoins = 0;
 	private int rateCoins = 0;
 	
+	// http://cookieclicker.wikia.com/wiki/Building
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
