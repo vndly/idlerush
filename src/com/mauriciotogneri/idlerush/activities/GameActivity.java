@@ -44,7 +44,7 @@ public class GameActivity extends Activity
 	{
 		this.remainingTime = 600;
 		
-		this.totalCoins = 0;
+		this.totalCoins = 1000;
 		this.rateCoins = 1234;
 		
 		updateUI();

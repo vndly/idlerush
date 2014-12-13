@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="123,456,789"
             android:textColor="@color/default_text_color"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/rate_coins"
@@ -53,7 +53,8 @@
                     android:src="@drawable/icon_cursor" />
 
                 <TextView
-                    style="@style/building_count" />
+                    style="@style/building_count"
+                    android:text="15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -62,31 +63,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Cost: 234,567"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Total: 3,456 / sec"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Unit: 1,152 / sec"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
 
@@ -100,7 +86,8 @@
                     android:src="@drawable/icon_grandma" />
 
                 <TextView
-                    style="@style/building_count" />
+                    style="@style/building_count"
+                    android:text="21" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,35 +96,150 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Cost: 234,567"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Total: 3,456 / sec"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Unit: 1,152 / sec"
-                        android:textColor="@color/default_text_color"
-                        android:textSize="12sp" />
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
 
             <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_farm" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="121" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
+            
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_grandma" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
+            
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_grandma" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="21" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
+            
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_grandma" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="21" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
         </TableLayout>
     </ScrollView>
 
