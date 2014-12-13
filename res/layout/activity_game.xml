@@ -28,7 +28,7 @@
             android:layout_marginTop="3dp"
             android:text="1,234 / second"
             android:textColor="@color/default_text_color"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <View
@@ -120,7 +120,7 @@
 
                 <TextView
                     style="@style/building_count"
-                    android:text="121" />
+                    android:text="107" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -149,7 +149,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_grandma" />
+                    android:src="@drawable/icon_factory" />
 
                 <TextView
                     style="@style/building_count"
@@ -182,7 +182,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_grandma" />
+                    android:src="@drawable/icon_mine" />
 
                 <TextView
                     style="@style/building_count"
@@ -215,7 +215,73 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_grandma" />
+                    android:src="@drawable/icon_shipment" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="21" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
+            
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_alchemy_lab" />
+
+                <TextView
+                    style="@style/building_count"
+                    android:text="21" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Cost: 234,567" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Total: 3,456 / sec" />
+
+                    <TextView
+                        style="@style/building_row_line"
+                        android:text="Unit: 1,152 / sec" />
+                </LinearLayout>
+            </TableRow>
+            
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_portal" />
 
                 <TextView
                     style="@style/building_count"
