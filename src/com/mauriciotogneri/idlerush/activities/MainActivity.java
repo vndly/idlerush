@@ -26,6 +26,8 @@ public class MainActivity extends Activity
 				startGame();
 			}
 		});
+		
+		startGame();
 	}
 	
 	private void startGame()

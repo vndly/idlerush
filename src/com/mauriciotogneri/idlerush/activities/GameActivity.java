@@ -6,6 +6,9 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import com.mauriciotogneri.idlerush.R;
 
@@ -15,36 +18,73 @@ public class GameActivity extends Activity
 	private ScheduledExecutorService executor = null;
 	private ScheduledFuture<?> scheduledTask = null;
 	
+	private int remainingTime = 0;
 	private long totalCoins = 0;
-	private final int rateCoins = 1;
+	private int rateCoins = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		
+		Window window = getWindow();
+		window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		
 		setContentView(R.layout.activity_game);
 		
 		this.executor = Executors.newScheduledThreadPool(1);
+		
+		initialize();
+	}
+	
+	private void initialize()
+	{
+		this.remainingTime = 600;
+		
+		this.totalCoins = 0;
+		this.rateCoins = 1;
+		
+		updateUI();
 	}
 	
 	private void update()
 	{
 		this.totalCoins += this.rateCoins;
+		this.remainingTime--;
 		
+		updateUI();
+	}
+	
+	private void updateUI()
+	{
 		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
 		totalCoinsLabel.setText(String.valueOf(this.totalCoins));
 		
 		TextView rateCoinsLabel = (TextView)findViewById(R.id.rate_coins);
 		rateCoinsLabel.setText(String.valueOf(this.rateCoins) + " / seconds");
+		
+		setTitle("  " + this.remainingTime);
 	}
 	
 	private class Task implements Runnable
 	{
+		private long lastTime = System.nanoTime();
+		
 		@Override
 		public void run()
 		{
-			update();
+			runOnUiThread(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					long currentTime = System.nanoTime();
+					Log.e("TEST", "TIME; " + (currentTime - Task.this.lastTime) / 1E9);
+					Task.this.lastTime = currentTime;
+					
+					update();
+				}
+			});
 		}
 	}
 	
@@ -63,7 +103,7 @@ public class GameActivity extends Activity
 		
 		stopCycleTask();
 		
-		this.scheduledTask = this.executor.scheduleWithFixedDelay(this.cycleTask, 0, 1, TimeUnit.SECONDS);
+		this.scheduledTask = this.executor.scheduleWithFixedDelay(this.cycleTask, 1, 1, TimeUnit.SECONDS);
 	}
 	
 	@Override
