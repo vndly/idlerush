@@ -167,22 +167,6 @@ public class GameActivity extends Activity
 		stopCycleTask();
 	}
 	
-	private class Task implements Runnable
-	{
-		@Override
-		public void run()
-		{
-			runOnUiThread(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					update();
-				}
-			});
-		}
-	}
-	
 	private void stopCycleTask()
 	{
 		if (this.scheduledTask != null)
@@ -198,7 +182,10 @@ public class GameActivity extends Activity
 		
 		stopCycleTask();
 		
-		this.scheduledTask = this.executor.scheduleWithFixedDelay(this.cycleTask, 1, 1, TimeUnit.SECONDS);
+		if (this.game.getRemainingTime() > 0)
+		{
+			this.scheduledTask = this.executor.scheduleWithFixedDelay(this.cycleTask, 1, 1, TimeUnit.SECONDS);
+		}
 	}
 	
 	@Override
@@ -227,4 +214,21 @@ public class GameActivity extends Activity
 			this.executor.shutdown();
 		}
 	}
+	
+	private class Task implements Runnable
+	{
+		@Override
+		public void run()
+		{
+			runOnUiThread(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					update();
+				}
+			});
+		}
+	}
+	
 }
