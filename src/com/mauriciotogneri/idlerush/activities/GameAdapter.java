@@ -1,6 +1,8 @@
 package com.mauriciotogneri.idlerush.activities;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import com.mauriciotogneri.idlerush.objects.Game;
 public class GameAdapter extends ArrayAdapter<Game>
 {
 	private final LayoutInflater inflater;
+	private final NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
 	
 	public GameAdapter(Context context, List<Game> list)
 	{
@@ -39,7 +42,7 @@ public class GameAdapter extends ArrayAdapter<Game>
 		remainingTime.setText(game.getRemainingTimeFormatted());
 		
 		TextView totalCoins = (TextView)convertView.findViewById(R.id.total_coins);
-		totalCoins.setText(String.valueOf(game.getTotalCoins()));
+		totalCoins.setText(this.numberFormat.format(game.getTotalCoins()));
 		
 		return convertView;
 	}
