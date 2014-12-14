@@ -14,6 +14,8 @@ import com.mauriciotogneri.idlerush.objects.buildings.Building9;
 
 public class Game
 {
+	private int id = 0;
+	
 	private int remainingTime = 0;
 	private long totalCoins = 0;
 	private int rateCoins = 0;
@@ -29,8 +31,10 @@ public class Game
 	private final Building9 building9;
 	private final Building10 building10;
 	
-	public Game(int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
+	public Game(int id, int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
 	{
+		this.id = id;
+		
 		this.remainingTime = remainingTime;
 		this.totalCoins = totalCoins;
 		
@@ -46,6 +50,11 @@ public class Game
 		this.building10 = new Building10(level10);
 		
 		claculateRateCoins();
+	}
+	
+	public int getId()
+	{
+		return this.id;
 	}
 	
 	private void claculateRateCoins()

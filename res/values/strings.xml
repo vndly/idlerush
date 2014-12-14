@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">IdleRush</string>
+    <string name="app_name">Idle Rush</string>
     
     <string name="image_description"></string>
     
-    <string name="main_start_game">Start Game</string>
+    <string name="main_continue_game">Continue Game</string>
+    <string name="main_new_game">New Game</string>
     
     <string name="game_building_line_cost">Cost:</string>
     <string name="game_building_line_total_production">Total:</string>

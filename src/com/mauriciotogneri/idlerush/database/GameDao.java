@@ -1,241 +1,183 @@
 package com.mauriciotogneri.idlerush.database;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.mauriciotogneri.idlerush.objects.Game;
 
 public class GameDao
 {
 	private static final String TABLE_NAME = "GAME";
 	private static final String COLUMN_ID = "id";
-	private static final String COLUMN_NAME = "name";
-	private static final String COLUMN_TYPE = "type";
-	private static final String COLUMN_QUANTITY = "quantity";
-	private static final String COLUMN_SELECTED = "selected";
+	private static final String COLUMN_TIME = "time";
+	private static final String COLUMN_COINS = "coins";
+	private static final String COLUMN_BUILDING_1 = "building_1";
+	private static final String COLUMN_BUILDING_2 = "building_2";
+	private static final String COLUMN_BUILDING_3 = "building_3";
+	private static final String COLUMN_BUILDING_4 = "building_4";
+	private static final String COLUMN_BUILDING_5 = "building_5";
+	private static final String COLUMN_BUILDING_6 = "building_6";
+	private static final String COLUMN_BUILDING_7 = "building_7";
+	private static final String COLUMN_BUILDING_8 = "building_8";
+	private static final String COLUMN_BUILDING_9 = "building_9";
+	private static final String COLUMN_BUILDING_10 = "building_10";
 	
-	public static final String TABLE_CREATE = "CREATE TABLE PRODUCT (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, type TEXT NOT NULL, quantity INTEGER NOT NULL, selected BOOLEAN NOT NULL);";
+	public static final String TABLE_CREATE = "CREATE TABLE " + GameDao.TABLE_NAME + " (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, type TEXT NOT NULL, quantity INTEGER NOT NULL, selected BOOLEAN NOT NULL);";
 	
-	// public List<Product> getProducts(boolean inList)
-	// {
-	// List<Product> result = new ArrayList<Product>();
-	//
-	// SQLiteDatabase database = null;
-	// Cursor cursor = null;
-	//
-	// try
-	// {
-	// database = Database.getInstance();
-	// // insertRows(database);
-	//
-	// String[] columns = new String[]
-	// {
-	// ProductDao.COLUMN_ID, ProductDao.COLUMN_NAME, ProductDao.COLUMN_TYPE, ProductDao.COLUMN_QUANTITY,
-	// ProductDao.COLUMN_SELECTED
-	// };
-	//
-	// String selection = "";
-	//
-	// if (inList)
-	// {
-	// selection = ProductDao.COLUMN_QUANTITY + " > 0";
-	// }
-	// else
-	// {
-	// selection = ProductDao.COLUMN_QUANTITY + " = 0";
-	// }
-	//
-	// cursor = database.query(ProductDao.TABLE_NAME, columns, selection, null, null, null, null);
-	//
-	// cursor.moveToFirst();
-	//
-	// while (!cursor.isAfterLast())
-	// {
-	// int id = cursor.getInt(0);
-	// String name = cursor.getString(1);
-	// Type type = Type.valueOf(cursor.getString(2));
-	// int quantity = cursor.getInt(3);
-	// boolean selected = cursor.getInt(4) > 0;
-	//
-	// Product product = new Product(id, name, type, quantity, selected);
-	// result.add(product);
-	//
-	// cursor.moveToNext();
-	// }
-	// }
-	// catch (Exception e)
-	// {
-	// e.printStackTrace();
-	// }
-	// finally
-	// {
-	// Database.closeCursor(cursor);
-	// Database.closeDatabase(database);
-	// }
-	//
-	// return result;
-	// }
-	//
-	// public boolean updateProduct(Product product)
-	// {
-	// boolean result = false;
-	// SQLiteDatabase database = null;
-	//
-	// try
-	// {
-	// database = Database.getInstance();
-	//
-	// ContentValues values = new ContentValues();
-	// values.put(ProductDao.COLUMN_NAME, product.getName().trim());
-	// values.put(ProductDao.COLUMN_TYPE, product.getType().toFieldValue());
-	// values.put(ProductDao.COLUMN_SELECTED, product.isSelected());
-	// values.put(ProductDao.COLUMN_QUANTITY, product.getQuantity());
-	//
-	// String whereClause = ProductDao.COLUMN_ID + " = ?";
-	// String[] whereArgs = new String[]
-	// {
-	// String.valueOf(product.getId())
-	// };
-	//
-	// int rowsAffected = database.update(ProductDao.TABLE_NAME, values, whereClause, whereArgs);
-	//
-	// result = (rowsAffected == 1);
-	// }
-	// catch (Exception e)
-	// {
-	// e.printStackTrace();
-	// }
-	// finally
-	// {
-	// Database.closeDatabase(database);
-	// }
-	//
-	// return result;
-	// }
-	//
-	// public Product createProduct(String name, Type type)
-	// {
-	// Product result = null;
-	// SQLiteDatabase database = null;
-	//
-	// try
-	// {
-	// database = Database.getInstance();
-	//
-	// ContentValues values = new ContentValues();
-	// values.put(ProductDao.COLUMN_NAME, name.trim());
-	// values.put(ProductDao.COLUMN_TYPE, type.toFieldValue());
-	// values.put(ProductDao.COLUMN_SELECTED, false);
-	// values.put(ProductDao.COLUMN_QUANTITY, 0);
-	//
-	// long id = database.insert(ProductDao.TABLE_NAME, null, values);
-	//
-	// if (id > 0)
-	// {
-	// result = new Product((int)id, name, type, 0, false);
-	// }
-	// }
-	// catch (Exception e)
-	// {
-	// e.printStackTrace();
-	// }
-	// finally
-	// {
-	// Database.closeDatabase(database);
-	// }
-	//
-	// return result;
-	// }
-	//
-	// public boolean removeProduct(Product product)
-	// {
-	// boolean result = false;
-	// SQLiteDatabase database = null;
-	//
-	// try
-	// {
-	// database = Database.getInstance();
-	//
-	// String whereClause = ProductDao.COLUMN_ID + " = ?";
-	// String[] whereArgs = new String[]
-	// {
-	// String.valueOf(product.getId())
-	// };
-	//
-	// int rowsAffected = database.delete(ProductDao.TABLE_NAME, whereClause, whereArgs);
-	//
-	// result = (rowsAffected == 1);
-	// }
-	// catch (Exception e)
-	// {
-	// e.printStackTrace();
-	// }
-	// finally
-	// {
-	// Database.closeDatabase(database);
-	// }
-	//
-	// return result;
-	// }
-	//
-	// @SuppressWarnings("unused")
-	// private void insertRows(SQLiteDatabase database)
-	// {
-	// // DRINK
-	// insertProduct(database, "Milk", Type.MILK);
-	// insertProduct(database, "Water", Type.WATER);
-	// insertProduct(database, "Coca-Cola", Type.COCA_COLA);
-	// insertProduct(database, "Ice Tea", Type.ICE_TEA);
-	//
-	// // FOOD
-	// insertProduct(database, "Bananas", Type.BANANAS);
-	// insertProduct(database, "Potatoes", Type.POTATOES);
-	// insertProduct(database, "Cereals", Type.CEREALS);
-	// insertProduct(database, "Pasta", Type.PASTA);
-	// insertProduct(database, "Rice", Type.RICE);
-	// insertProduct(database, "Sardines", Type.SARDINES);
-	// insertProduct(database, "Tomato Sauce", Type.TOMATO_SAUCE);
-	// insertProduct(database, "Tuna", Type.TUNA);
-	// insertProduct(database, "Corn", Type.CORN);
-	// insertProduct(database, "Meat", Type.MEAT);
-	// insertProduct(database, "Eggs", Type.EGGS);
-	// insertProduct(database, "Fish Sticks", Type.FISH_STICKS);
-	// insertProduct(database, "Sunflower Oil", Type.SUNFLOWER_OIL);
-	// insertProduct(database, "Salt", Type.SALT);
-	// insertProduct(database, "Soup", Type.SOUP);
-	// insertProduct(database, "Grated Cheese", Type.GRATED_CHEESE);
-	// insertProduct(database, "Pizza", Type.PIZZA);
-	//
-	// // KITCHEN
-	// insertProduct(database, "Kitchen Paper", Type.KITCHEN_PAPER);
-	// insertProduct(database, "Kitchen Rags", Type.KITCHEN_RAGS);
-	// insertProduct(database, "Sponge Normal", Type.SPONGE_NORMAL);
-	// insertProduct(database, "Sponge Metal", Type.SPONGE_METAL);
-	// insertProduct(database, "Whasing-Up Liquid", Type.WASHINGUP_LIQUID);
-	// insertProduct(database, "Plastic Bag", Type.TRASH_BAG_PLASTIC);
-	// insertProduct(database, "Organic Bag", Type.TRASH_BAG_ORGANIC);
-	//
-	// // BATHROOM
-	// insertProduct(database, "Toilet Paper", Type.TOILET_PAPER);
-	// insertProduct(database, "Toothbrush", Type.TOOTHBRUSH);
-	// insertProduct(database, "Toothpaste", Type.TOOTHPASTE);
-	// insertProduct(database, "Razor", Type.RAZOR);
-	// insertProduct(database, "Shaving Foam", Type.SHAVING_FOAM);
-	// insertProduct(database, "Soap", Type.SOAP);
-	// insertProduct(database, "Deodorant", Type.DEODORANT);
-	// insertProduct(database, "Shampoo", Type.SHAMPOO);
-	// insertProduct(database, "Shower Gel", Type.SHOWER_GEL);
-	// insertProduct(database, "Air Freshener", Type.AIR_FRESHENER);
-	// insertProduct(database, "Swabs", Type.SWABS);
-	//
-	// // CLOTHES
-	// insertProduct(database, "Detergent", Type.DETERGENT);
-	// insertProduct(database, "Hair Remover", Type.HAIR_REMOVER);
-	// }
-	//
-	// private void insertProduct(SQLiteDatabase database, String name, Type type)
-	// {
-	// ContentValues values = new ContentValues();
-	// values.put(ProductDao.COLUMN_NAME, name);
-	// values.put(ProductDao.COLUMN_TYPE, type.toFieldValue());
-	// values.put(ProductDao.COLUMN_QUANTITY, 0);
-	// values.put(ProductDao.COLUMN_SELECTED, false);
-	// database.insert(ProductDao.TABLE_NAME, null, values);
-	// }
+	public Game getGame(int gameId)
+	{
+		Game result = null;
+		
+		SQLiteDatabase database = null;
+		Cursor cursor = null;
+		
+		try
+		{
+			database = Database.getInstance();
+			
+			String[] columns = new String[]
+				{
+				    GameDao.COLUMN_ID, //
+				    GameDao.COLUMN_TIME, //
+				    GameDao.COLUMN_COINS, //
+				    GameDao.COLUMN_BUILDING_1, //
+				    GameDao.COLUMN_BUILDING_2, //
+				    GameDao.COLUMN_BUILDING_3, //
+				    GameDao.COLUMN_BUILDING_4, //
+				    GameDao.COLUMN_BUILDING_5, //
+				    GameDao.COLUMN_BUILDING_6, //
+				    GameDao.COLUMN_BUILDING_7, //
+				    GameDao.COLUMN_BUILDING_8, //
+				    GameDao.COLUMN_BUILDING_9, //
+				    GameDao.COLUMN_BUILDING_10
+				};
+			
+			String selectionClause = GameDao.COLUMN_ID + "=" + gameId;
+			
+			String[] selectionArgs = new String[]
+				{
+					String.valueOf(gameId)
+				};
+			
+			cursor = database.query(GameDao.TABLE_NAME, columns, selectionClause, selectionArgs, null, null, null);
+			
+			if (cursor.moveToFirst())
+			{
+				int id = cursor.getInt(0);
+				int time = cursor.getInt(1);
+				long coins = cursor.getLong(2);
+				int building1 = cursor.getInt(3);
+				int building2 = cursor.getInt(4);
+				int building3 = cursor.getInt(5);
+				int building4 = cursor.getInt(6);
+				int building5 = cursor.getInt(7);
+				int building6 = cursor.getInt(8);
+				int building7 = cursor.getInt(9);
+				int building8 = cursor.getInt(10);
+				int building9 = cursor.getInt(11);
+				int building10 = cursor.getInt(12);
+				
+				result = new Game(id, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Database.closeCursor(cursor);
+			Database.closeDatabase(database);
+		}
+		
+		return result;
+	}
+	
+	public boolean updateGame(Game game)
+	{
+		boolean result = false;
+		SQLiteDatabase database = null;
+		
+		try
+		{
+			database = Database.getInstance();
+			
+			ContentValues values = new ContentValues();
+			values.put(GameDao.COLUMN_TIME, game.getRemainingTime());
+			values.put(GameDao.COLUMN_COINS, game.getTotalCoins());
+			values.put(GameDao.COLUMN_BUILDING_1, game.getBuilding1().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_2, game.getBuilding2().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_3, game.getBuilding3().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_4, game.getBuilding4().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_5, game.getBuilding5().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_6, game.getBuilding6().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_7, game.getBuilding7().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_8, game.getBuilding8().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_9, game.getBuilding9().getLevel());
+			values.put(GameDao.COLUMN_BUILDING_10, game.getBuilding10().getLevel());
+			
+			String whereClause = GameDao.COLUMN_ID + " = ?";
+			
+			String[] whereArgs = new String[]
+				{
+					String.valueOf(game.getId())
+				};
+			
+			int rowsAffected = database.update(GameDao.TABLE_NAME, values, whereClause, whereArgs);
+			
+			result = (rowsAffected == 1);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Database.closeDatabase(database);
+		}
+		
+		return result;
+	}
+	
+	public Game createGame(int time)
+	{
+		Game result = null;
+		SQLiteDatabase database = null;
+		
+		try
+		{
+			database = Database.getInstance();
+			
+			ContentValues values = new ContentValues();
+			values.put(GameDao.COLUMN_TIME, time);
+			values.put(GameDao.COLUMN_COINS, 0);
+			values.put(GameDao.COLUMN_BUILDING_1, 0);
+			values.put(GameDao.COLUMN_BUILDING_2, 0);
+			values.put(GameDao.COLUMN_BUILDING_3, 0);
+			values.put(GameDao.COLUMN_BUILDING_4, 0);
+			values.put(GameDao.COLUMN_BUILDING_5, 0);
+			values.put(GameDao.COLUMN_BUILDING_6, 0);
+			values.put(GameDao.COLUMN_BUILDING_7, 0);
+			values.put(GameDao.COLUMN_BUILDING_8, 0);
+			values.put(GameDao.COLUMN_BUILDING_9, 0);
+			values.put(GameDao.COLUMN_BUILDING_10, 0);
+			
+			int id = (int)database.insert(GameDao.TABLE_NAME, null, values);
+			
+			if (id > 0)
+			{
+				result = new Game(id, time, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Database.closeDatabase(database);
+		}
+		
+		return result;
+	}
 }

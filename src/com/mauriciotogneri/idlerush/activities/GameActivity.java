@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.mauriciotogneri.idlerush.R;
+import com.mauriciotogneri.idlerush.database.GameDao;
 import com.mauriciotogneri.idlerush.objects.Game;
 import com.mauriciotogneri.idlerush.objects.buildings.Building;
 
@@ -30,6 +31,8 @@ public class GameActivity extends Activity
 	
 	private final NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
 	
+	public static final String PARAMETER_GAME_ID = "game_id";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -42,7 +45,10 @@ public class GameActivity extends Activity
 		
 		this.executor = Executors.newScheduledThreadPool(1);
 		
-		this.game = new Game(120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		int gameId = getIntent().getIntExtra(GameActivity.PARAMETER_GAME_ID, 0);
+		
+		GameDao gameDao = new GameDao();
+		this.game = gameDao.getGame(gameId);
 		
 		updateUI();
 		
@@ -199,6 +205,12 @@ public class GameActivity extends Activity
 	protected void onPause()
 	{
 		super.onPause();
+		
+		synchronized (this.gameLock)
+		{
+			GameDao gameDao = new GameDao();
+			gameDao.updateGame(this.game);
+		}
 		
 		stopCycleTask();
 	}
