@@ -253,4 +253,35 @@ public class GameDao
 		
 		return result;
 	}
+	
+	public boolean deleteGame(Game game)
+	{
+		boolean result = false;
+		SQLiteDatabase database = null;
+		
+		try
+		{
+			database = Database.getInstance();
+			
+			String whereClause = GameDao.COLUMN_ID + " = ?";
+			String[] whereArgs = new String[]
+				{
+					String.valueOf(game.getId())
+				};
+			
+			int rowsAffected = database.delete(GameDao.TABLE_NAME, whereClause, whereArgs);
+			
+			result = (rowsAffected == 1);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Database.closeDatabase(database);
+		}
+		
+		return result;
+	}
 }
