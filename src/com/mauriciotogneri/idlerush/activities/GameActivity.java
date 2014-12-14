@@ -103,13 +103,7 @@ public class GameActivity extends Activity
 	private void updateUI()
 	{
 		int remainingTime = this.game.getRemainingTime();
-		
-		long millis = remainingTime * 1000;
-		long hours = TimeUnit.MILLISECONDS.toHours(millis);
-		long minutes = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis));
-		long seconds = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
-		
-		String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds);
+		String timeFormatted = this.game.getRemainingTimeFormatted();
 		
 		if (remainingTime >= 60)
 		{

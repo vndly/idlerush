@@ -15,7 +15,7 @@
         android:orientation="vertical" >
 
         <ListView
-            android:id="@+id/list"
+            android:id="@+id/saved_games"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -43,20 +43,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="@string/main_game_mode" />
+                android:text="@string/main_game_mode"
+                android:textSize="16sp" />
 
             <Spinner
                 android:id="@+id/game_mode"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/new_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/main_new_game"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:text="@string/main_new_game" />
     </LinearLayout>
 
 </LinearLayout>

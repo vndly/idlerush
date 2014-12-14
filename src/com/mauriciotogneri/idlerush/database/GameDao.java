@@ -1,5 +1,7 @@
 package com.mauriciotogneri.idlerush.database;
 
+import java.util.ArrayList;
+import java.util.List;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -77,21 +79,7 @@ public class GameDao
 			
 			if (cursor.moveToFirst())
 			{
-				int id = cursor.getInt(0);
-				int time = cursor.getInt(1);
-				long coins = cursor.getLong(2);
-				int building1 = cursor.getInt(3);
-				int building2 = cursor.getInt(4);
-				int building3 = cursor.getInt(5);
-				int building4 = cursor.getInt(6);
-				int building5 = cursor.getInt(7);
-				int building6 = cursor.getInt(8);
-				int building7 = cursor.getInt(9);
-				int building8 = cursor.getInt(10);
-				int building9 = cursor.getInt(11);
-				int building10 = cursor.getInt(12);
-				
-				result = new Game(id, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
+				result = getGame(cursor);
 			}
 		}
 		catch (Exception e)
@@ -105,6 +93,73 @@ public class GameDao
 		}
 		
 		return result;
+	}
+	
+	public List<Game> getGames()
+	{
+		List<Game> result = new ArrayList<Game>();
+		
+		SQLiteDatabase database = null;
+		Cursor cursor = null;
+		
+		try
+		{
+			database = Database.getInstance();
+			
+			String[] columns = new String[]
+				{
+				    GameDao.COLUMN_ID, //
+				    GameDao.COLUMN_TIME, //
+				    GameDao.COLUMN_COINS, //
+				    GameDao.COLUMN_BUILDING_1, //
+				    GameDao.COLUMN_BUILDING_2, //
+				    GameDao.COLUMN_BUILDING_3, //
+				    GameDao.COLUMN_BUILDING_4, //
+				    GameDao.COLUMN_BUILDING_5, //
+				    GameDao.COLUMN_BUILDING_6, //
+				    GameDao.COLUMN_BUILDING_7, //
+				    GameDao.COLUMN_BUILDING_8, //
+				    GameDao.COLUMN_BUILDING_9, //
+				    GameDao.COLUMN_BUILDING_10
+				};
+			
+			cursor = database.query(GameDao.TABLE_NAME, columns, null, null, null, null, null);
+			
+			if (cursor.moveToFirst())
+			{
+				result.add(getGame(cursor));
+			}
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			Database.closeCursor(cursor);
+			Database.closeDatabase(database);
+		}
+		
+		return result;
+	}
+	
+	private Game getGame(Cursor cursor)
+	{
+		int id = cursor.getInt(0);
+		int time = cursor.getInt(1);
+		long coins = cursor.getLong(2);
+		int building1 = cursor.getInt(3);
+		int building2 = cursor.getInt(4);
+		int building3 = cursor.getInt(5);
+		int building4 = cursor.getInt(6);
+		int building5 = cursor.getInt(7);
+		int building6 = cursor.getInt(8);
+		int building7 = cursor.getInt(9);
+		int building8 = cursor.getInt(10);
+		int building9 = cursor.getInt(11);
+		int building10 = cursor.getInt(12);
+		
+		return new Game(id, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
 	}
 	
 	public boolean updateGame(Game game)

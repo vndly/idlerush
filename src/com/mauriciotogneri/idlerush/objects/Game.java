@@ -1,5 +1,7 @@
 package com.mauriciotogneri.idlerush.objects;
 
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import com.mauriciotogneri.idlerush.objects.buildings.Building;
 import com.mauriciotogneri.idlerush.objects.buildings.Building1;
 import com.mauriciotogneri.idlerush.objects.buildings.Building10;
@@ -150,6 +152,16 @@ public class Game
 	public int getRemainingTime()
 	{
 		return this.remainingTime;
+	}
+	
+	public String getRemainingTimeFormatted()
+	{
+		long millis = this.remainingTime * 1000;
+		long hours = TimeUnit.MILLISECONDS.toHours(millis);
+		long minutes = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis));
+		long seconds = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
+		
+		return String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds);
 	}
 	
 	public Building getBuilding1()
