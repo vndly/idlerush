@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/building_row" >
+
+    <ImageButton
+        android:id="@+id/building_8_icon"
+        style="@style/building_icon"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/icon_building_8" />
+
+    <TextView
+        android:id="@+id/building_8_level"
+        style="@style/building_level" />
+
+    <TableLayout style="@style/building_row_info" >
+
+        <TableRow style="@style/building_row_line" >
+
+            <TextView
+                style="@style/building_row_line_title"
+                android:text="@string/game_building_line_cost" />
+
+            <TextView
+                android:id="@+id/building_8_cost"
+                style="@style/building_row_line_value" />
+        </TableRow>
+
+        <TableRow style="@style/building_row_line" >
+
+            <TextView
+                style="@style/building_row_line_title"
+                android:text="@string/game_building_line_total_production" />
+
+            <TextView
+                android:id="@+id/building_8_total_production"
+                style="@style/building_row_line_value" />
+        </TableRow>
+
+        <TableRow style="@style/building_row_line" >
+
+            <TextView
+                style="@style/building_row_line_title"
+                android:text="@string/game_building_line_production_unit" />
+
+            <TextView
+                android:id="@+id/building_8_production_unit"
+                style="@style/building_row_line_value" />
+        </TableRow>
+    </TableLayout>
+
+</TableRow>
