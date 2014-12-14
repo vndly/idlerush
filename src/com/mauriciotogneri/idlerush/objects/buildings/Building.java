@@ -31,9 +31,9 @@ public class Building
 		return this.baseCps;
 	}
 	
-	public int getNextPrice()
+	public long getNextPrice()
 	{
-		return (int)(this.baseCost * Math.pow(1.15f, this.level));
+		return (long)(this.baseCost * Math.pow(1.15f, this.level));
 	}
 	
 	public int getCps()

@@ -42,7 +42,7 @@ public class GameActivity extends Activity
 		
 		this.executor = Executors.newScheduledThreadPool(1);
 		
-		this.game = new Game(70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		this.game = new Game(120, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		
 		updateUI();
 		

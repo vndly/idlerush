@@ -55,11 +55,7 @@
                     android:id="@+id/building_1_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_1_cost"
@@ -89,11 +85,7 @@
                     android:id="@+id/building_2_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_2_cost"
@@ -123,11 +115,7 @@
                     android:id="@+id/building_3_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_3_cost"
@@ -157,11 +145,7 @@
                     android:id="@+id/building_4_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_4_cost"
@@ -191,11 +175,7 @@
                     android:id="@+id/building_5_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_5_cost"
@@ -225,11 +205,7 @@
                     android:id="@+id/building_6_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_6_cost"
@@ -259,11 +235,7 @@
                     android:id="@+id/building_7_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_7_cost"
@@ -293,11 +265,7 @@
                     android:id="@+id/building_8_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_8_cost"
@@ -327,11 +295,7 @@
                     android:id="@+id/building_9_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_9_cost"
@@ -363,11 +327,7 @@
                     android:id="@+id/building_10_level"
                     style="@style/building_level" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical" >
+                <LinearLayout style="@style/building_row_info" >
 
                     <TextView
                         android:id="@+id/building_10_cost"

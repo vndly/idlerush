@@ -109,7 +109,7 @@ public class Game
 	private boolean increaseBuilding(Building building)
 	{
 		boolean result = false;
-		int nextPrice = building.getNextPrice();
+		long nextPrice = building.getNextPrice();
 		
 		if (nextPrice <= this.totalCoins)
 		{
