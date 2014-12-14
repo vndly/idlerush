@@ -66,7 +66,7 @@ public class GameDao
 				    GameDao.COLUMN_BUILDING_10
 				};
 			
-			String selectionClause = GameDao.COLUMN_ID + "=" + gameId;
+			String selectionClause = GameDao.COLUMN_ID + "= ?";
 			
 			String[] selectionArgs = new String[]
 				{

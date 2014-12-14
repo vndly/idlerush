@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 import com.mauriciotogneri.idlerush.R;
+import com.mauriciotogneri.idlerush.database.Database;
 import com.mauriciotogneri.idlerush.database.GameDao;
 import com.mauriciotogneri.idlerush.objects.Game;
 
@@ -39,6 +40,8 @@ public class MainActivity extends Activity
 				newGame();
 			}
 		});
+		
+		Database.initialize(this);
 	}
 	
 	private void continueGame()
