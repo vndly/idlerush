@@ -147,13 +147,13 @@ public class GameActivity extends Activity
 		building1Count.setText(String.valueOf(building.getLevel()));
 		
 		TextView building1Cost = (TextView)findViewById(costId);
-		building1Cost.setText("Cost: " + this.numberFormat.format(building.getNextPrice()));
+		building1Cost.setText(this.numberFormat.format(building.getNextPrice()));
 		
 		TextView building1TotalProduction = (TextView)findViewById(totalProductionId);
-		building1TotalProduction.setText("Total: " + this.numberFormat.format(building.getCps()) + " / sec");
+		building1TotalProduction.setText(this.numberFormat.format(building.getCps()) + " / sec");
 		
 		TextView building1ProductionUnit = (TextView)findViewById(productionUnitId);
-		building1ProductionUnit.setText("Unit: " + this.numberFormat.format(building.getBaseCps()) + " / sec");
+		building1ProductionUnit.setText(this.numberFormat.format(building.getBaseCps()) + " / sec");
 	}
 	
 	private void gameFinished()

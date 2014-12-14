@@ -6,5 +6,9 @@
     <string name="image_description"></string>
     
     <string name="main_start_game">Start Game</string>
+    
+    <string name="game_building_line_cost">Cost:</string>
+    <string name="game_building_line_total_production">Total:</string>
+    <string name="game_building_line_production_unit">Unit:</string>
 
 </resources>
