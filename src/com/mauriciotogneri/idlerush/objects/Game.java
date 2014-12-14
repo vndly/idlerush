@@ -1,5 +1,7 @@
 package com.mauriciotogneri.idlerush.objects;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import com.mauriciotogneri.idlerush.objects.buildings.Building;
@@ -212,5 +214,20 @@ public class Game
 	public Building getBuilding10()
 	{
 		return this.building10;
+	}
+	
+	public static List<GameMode> getGameModes()
+	{
+		List<GameMode> result = new ArrayList<GameMode>();
+		
+		result.add(new GameMode(1 * 10 * 60, "10 minutes"));
+		result.add(new GameMode(1 * 30 * 60, "30 minutes"));
+		result.add(new GameMode(1 * 60 * 60, "1 hour"));
+		result.add(new GameMode(3 * 60 * 60, "3 hours"));
+		result.add(new GameMode(6 * 60 * 60, "6 hours"));
+		result.add(new GameMode(12 * 60 * 60, "12 hours"));
+		result.add(new GameMode(24 * 60 * 60, "24 hours"));
+		
+		return result;
 	}
 }

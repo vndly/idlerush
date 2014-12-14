@@ -15,15 +15,5 @@
     <string name="game_building_line_cost">Cost:</string>
     <string name="game_building_line_total_production">Total:</string>
     <string name="game_building_line_production_unit">Unit:</string>
-
-    <string-array name="game_modes">
-        <item>10 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>12 hours</item>
-        <item>24 hours</item>
-    </string-array>
-
+    
 </resources>

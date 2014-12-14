@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -19,6 +18,7 @@ import com.mauriciotogneri.idlerush.R;
 import com.mauriciotogneri.idlerush.database.Database;
 import com.mauriciotogneri.idlerush.database.GameDao;
 import com.mauriciotogneri.idlerush.objects.Game;
+import com.mauriciotogneri.idlerush.objects.GameMode;
 
 public class MainActivity extends Activity
 {
@@ -47,10 +47,10 @@ public class MainActivity extends Activity
 			}
 		});
 		
+		GameModeAdapter gameModeAdapter = new GameModeAdapter(this, Game.getGameModes());
+		
 		Spinner gameMode = (Spinner)findViewById(R.id.game_mode);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.game_modes, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		gameMode.setAdapter(adapter);
+		gameMode.setAdapter(gameModeAdapter);
 		
 		Button newGame = (Button)findViewById(R.id.new_game);
 		newGame.setOnClickListener(new OnClickListener()
@@ -108,8 +108,11 @@ public class MainActivity extends Activity
 	
 	private void newGame()
 	{
+		Spinner gameModeSpinner = (Spinner)findViewById(R.id.game_mode);
+		GameMode gameMode = (GameMode)gameModeSpinner.getSelectedItem();
+		
 		GameDao gameDao = new GameDao();
-		Game game = gameDao.createGame(60 * 2);
+		Game game = gameDao.createGame(gameMode.time);
 		
 		startGame(game.getId());
 	}
