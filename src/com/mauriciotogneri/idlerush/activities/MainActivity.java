@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.mauriciotogneri.idlerush.R;
 import com.mauriciotogneri.idlerush.database.Database;
@@ -63,9 +64,9 @@ public class MainActivity extends Activity
 	}
 	
 	@Override
-	protected void onStart()
+	protected void onResume()
 	{
-		super.onStart();
+		super.onResume();
 		
 		GameDao gameDao = new GameDao();
 		List<Game> games = gameDao.getGames();
@@ -74,6 +75,20 @@ public class MainActivity extends Activity
 		this.savedGames.addAll(games);
 		
 		this.gameAdapter.notifyDataSetChanged();
+		
+		ListView listSavedGames = (ListView)findViewById(R.id.saved_games);
+		TextView emptyListLabel = (TextView)findViewById(R.id.empty_label);
+		
+		if (games.isEmpty())
+		{
+			emptyListLabel.setVisibility(View.VISIBLE);
+			listSavedGames.setVisibility(View.GONE);
+		}
+		else
+		{
+			emptyListLabel.setVisibility(View.GONE);
+			listSavedGames.setVisibility(View.VISIBLE);
+		}
 	}
 	
 	private void continueGame(int gameId)

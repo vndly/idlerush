@@ -125,9 +125,13 @@ public class GameDao
 			
 			cursor = database.query(GameDao.TABLE_NAME, columns, null, null, null, null, null);
 			
-			if (cursor.moveToFirst())
+			cursor.moveToFirst();
+			
+			while (!cursor.isAfterLast())
 			{
 				result.add(getGame(cursor));
+				
+				cursor.moveToNext();
 			}
 		}
 		catch (Exception e)
