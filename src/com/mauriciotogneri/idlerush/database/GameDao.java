@@ -11,6 +11,7 @@ public class GameDao
 {
 	private static final String TABLE_NAME = "GAME";
 	private static final String COLUMN_ID = "id";
+	private static final String COLUMN_MODE = "mode";
 	private static final String COLUMN_TIME = "time";
 	private static final String COLUMN_COINS = "coins";
 	private static final String COLUMN_BUILDING_1 = "building_1";
@@ -26,6 +27,7 @@ public class GameDao
 	
 	public static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + GameDao.TABLE_NAME + " (" + //
 	    GameDao.COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " + //
+	    GameDao.COLUMN_MODE + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_TIME + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_COINS + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_BUILDING_1 + " INTEGER NOT NULL, " + //
@@ -54,6 +56,7 @@ public class GameDao
 			String[] columns = new String[]
 				{
 				    GameDao.COLUMN_ID, //
+				    GameDao.COLUMN_MODE, //
 				    GameDao.COLUMN_TIME, //
 				    GameDao.COLUMN_COINS, //
 				    GameDao.COLUMN_BUILDING_1, //
@@ -109,6 +112,7 @@ public class GameDao
 			String[] columns = new String[]
 				{
 				    GameDao.COLUMN_ID, //
+				    GameDao.COLUMN_MODE, //
 				    GameDao.COLUMN_TIME, //
 				    GameDao.COLUMN_COINS, //
 				    GameDao.COLUMN_BUILDING_1, //
@@ -150,20 +154,21 @@ public class GameDao
 	private Game getGame(Cursor cursor)
 	{
 		int id = cursor.getInt(0);
-		int time = cursor.getInt(1);
-		long coins = cursor.getLong(2);
-		int building1 = cursor.getInt(3);
-		int building2 = cursor.getInt(4);
-		int building3 = cursor.getInt(5);
-		int building4 = cursor.getInt(6);
-		int building5 = cursor.getInt(7);
-		int building6 = cursor.getInt(8);
-		int building7 = cursor.getInt(9);
-		int building8 = cursor.getInt(10);
-		int building9 = cursor.getInt(11);
-		int building10 = cursor.getInt(12);
+		int mode = cursor.getInt(1);
+		int time = cursor.getInt(2);
+		long coins = cursor.getLong(3);
+		int building1 = cursor.getInt(4);
+		int building2 = cursor.getInt(5);
+		int building3 = cursor.getInt(6);
+		int building4 = cursor.getInt(7);
+		int building5 = cursor.getInt(8);
+		int building6 = cursor.getInt(9);
+		int building7 = cursor.getInt(10);
+		int building8 = cursor.getInt(11);
+		int building9 = cursor.getInt(12);
+		int building10 = cursor.getInt(13);
 		
-		return new Game(id, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
+		return new Game(id, mode, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
 	}
 	
 	public boolean updateGame(Game game)
@@ -176,6 +181,7 @@ public class GameDao
 			database = Database.getInstance();
 			
 			ContentValues values = new ContentValues();
+			values.put(GameDao.COLUMN_MODE, game.getGameMode().time);
 			values.put(GameDao.COLUMN_TIME, game.getRemainingTime());
 			values.put(GameDao.COLUMN_COINS, game.getTotalCoins());
 			values.put(GameDao.COLUMN_BUILDING_1, game.getBuilding1().getLevel());
@@ -222,6 +228,7 @@ public class GameDao
 			database = Database.getInstance();
 			
 			ContentValues values = new ContentValues();
+			values.put(GameDao.COLUMN_MODE, time);
 			values.put(GameDao.COLUMN_TIME, time);
 			values.put(GameDao.COLUMN_COINS, 0);
 			values.put(GameDao.COLUMN_BUILDING_1, 0);
@@ -239,7 +246,7 @@ public class GameDao
 			
 			if (id > 0)
 			{
-				result = new Game(id, time, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+				result = new Game(id, time, time, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 			}
 		}
 		catch (Exception e)

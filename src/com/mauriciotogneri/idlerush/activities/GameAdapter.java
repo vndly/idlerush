@@ -32,6 +32,9 @@ public class GameAdapter extends ArrayAdapter<Game>
 			convertView = this.inflater.inflate(R.layout.game_row, parent, false);
 		}
 		
+		TextView gameMode = (TextView)convertView.findViewById(R.id.game_mode);
+		gameMode.setText(game.getGameMode().toString());
+		
 		TextView remainingTime = (TextView)convertView.findViewById(R.id.remaining_time);
 		remainingTime.setText(game.getRemainingTimeFormatted());
 		

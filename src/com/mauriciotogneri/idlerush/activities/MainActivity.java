@@ -62,9 +62,9 @@ public class MainActivity extends Activity
 			}
 		});
 		
-		GameModeAdapter gameModeAdapter = new GameModeAdapter(this, Game.getGameModes());
+		GameModeAdapter gameModeAdapter = new GameModeAdapter(this, GameMode.defaultList());
 		
-		Spinner gameMode = (Spinner)findViewById(R.id.game_mode);
+		Spinner gameMode = (Spinner)findViewById(R.id.new_game_mode);
 		gameMode.setAdapter(gameModeAdapter);
 		
 		Button newGame = (Button)findViewById(R.id.new_game);
@@ -168,7 +168,7 @@ public class MainActivity extends Activity
 	
 	private void newGame()
 	{
-		Spinner gameModeSpinner = (Spinner)findViewById(R.id.game_mode);
+		Spinner gameModeSpinner = (Spinner)findViewById(R.id.new_game_mode);
 		GameMode gameMode = (GameMode)gameModeSpinner.getSelectedItem();
 		
 		GameDao gameDao = new GameDao();

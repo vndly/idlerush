@@ -1,7 +1,5 @@
 package com.mauriciotogneri.idlerush.objects;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import com.mauriciotogneri.idlerush.objects.buildings.Building;
@@ -18,7 +16,8 @@ import com.mauriciotogneri.idlerush.objects.buildings.Building9;
 
 public class Game
 {
-	private int id = 0;
+	private final int id;
+	private final GameMode gameMode;
 	
 	private int remainingTime = 0;
 	private long totalCoins = 0;
@@ -35,9 +34,10 @@ public class Game
 	private final Building9 building9;
 	private final Building10 building10;
 	
-	public Game(int id, int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
+	public Game(int id, int gameMode, int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
 	{
 		this.id = id;
+		this.gameMode = new GameMode(gameMode);
 		
 		this.remainingTime = remainingTime;
 		this.totalCoins = totalCoins;
@@ -156,6 +156,11 @@ public class Game
 		return this.remainingTime;
 	}
 	
+	public GameMode getGameMode()
+	{
+		return this.gameMode;
+	}
+	
 	public String getRemainingTimeFormatted()
 	{
 		long millis = this.remainingTime * 1000;
@@ -214,20 +219,5 @@ public class Game
 	public Building getBuilding10()
 	{
 		return this.building10;
-	}
-	
-	public static List<GameMode> getGameModes()
-	{
-		List<GameMode> result = new ArrayList<GameMode>();
-		
-		result.add(new GameMode(1 * 10 * 60, "10 minutes"));
-		result.add(new GameMode(1 * 30 * 60, "30 minutes"));
-		result.add(new GameMode(1 * 60 * 60, "1 hour"));
-		result.add(new GameMode(3 * 60 * 60, "3 hours"));
-		result.add(new GameMode(6 * 60 * 60, "6 hours"));
-		result.add(new GameMode(12 * 60 * 60, "12 hours"));
-		result.add(new GameMode(24 * 60 * 60, "24 hours"));
-		
-		return result;
 	}
 }

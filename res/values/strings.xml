@@ -9,6 +9,7 @@
     <string name="main_empty_list">No saved games</string>
     <string name="main_game_mode">Game mode:</string>
     
+    <string name="game_row_game_mode">Game mode:</string>
     <string name="game_row_remaining_time">Remaining time:</string>
     <string name="game_row_total_coins">Total coins:</string>
     
