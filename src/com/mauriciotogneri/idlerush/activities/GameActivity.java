@@ -42,7 +42,7 @@ public class GameActivity extends Activity
 	
 	private void initialize()
 	{
-		this.game = new Game(600, 1000, 1234, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		this.game = new Game(600, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		
 		updateUI();
 	}

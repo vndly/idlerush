@@ -16,7 +16,7 @@ public class Game
 {
 	private int remainingTime = 0;
 	private long totalCoins = 0;
-	private int rateCoins = 0;
+	private float rateCoins = 0;
 	
 	private final Building1 building1;
 	private final Building2 building2;
@@ -29,11 +29,10 @@ public class Game
 	private final Building9 building9;
 	private final Building10 building10;
 	
-	public Game(int remainingTime, long totalCoins, int rateCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
+	public Game(int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
 	{
 		this.remainingTime = remainingTime;
 		this.totalCoins = totalCoins;
-		this.rateCoins = rateCoins;
 		
 		this.building1 = new Building1(level1);
 		this.building2 = new Building2(level2);
@@ -45,6 +44,13 @@ public class Game
 		this.building8 = new Building8(level8);
 		this.building9 = new Building9(level9);
 		this.building10 = new Building10(level10);
+		
+		this.rateCoins = claculateRateCoins(this.building1, this.building2, this.building3, this.building4, this.building5, this.building6, this.building7, this.building8, this.building9, this.building10);
+	}
+	
+	private float claculateRateCoins(Building1 building1, Building2 building2, Building3 building3, Building4 building4, Building5 building5, Building6 building6, Building7 building7, Building8 building8, Building9 building9, Building10 building10)
+	{
+		return building1.getCps() + building2.getCps() + building3.getCps() + building4.getCps() + building5.getCps() + building6.getCps() + building7.getCps() + building8.getCps() + building9.getCps() + building10.getCps() + 1;
 	}
 	
 	public void update()
@@ -58,7 +64,7 @@ public class Game
 		return this.totalCoins;
 	}
 	
-	public int getRateCoins()
+	public float getRateCoins()
 	{
 		return this.rateCoins;
 	}
