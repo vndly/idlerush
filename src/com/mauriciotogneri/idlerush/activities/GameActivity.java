@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -42,7 +43,7 @@ public class GameActivity extends Activity
 	
 	private void initialize()
 	{
-		this.game = new Game(600, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		this.game = new Game(70, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		
 		updateUI();
 	}
@@ -63,7 +64,16 @@ public class GameActivity extends Activity
 		long minutes = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis));
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
 		
-		setTitle("  " + String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds));
+		String timeFormatted = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds);
+		
+		if (remainingTime >= 60)
+		{
+			setTitle(Html.fromHtml("<big><font color='#777777'>&nbsp;&nbsp;" + timeFormatted + "</font></big>"));
+		}
+		else
+		{
+			setTitle(Html.fromHtml("<big><font color='#FF3C3C'>&nbsp;&nbsp;" + timeFormatted + "</font></big>"));
+		}
 		
 		if (remainingTime <= 0)
 		{
