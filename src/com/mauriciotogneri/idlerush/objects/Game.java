@@ -16,7 +16,7 @@ public class Game
 {
 	private int remainingTime = 0;
 	private long totalCoins = 0;
-	private float rateCoins = 0;
+	private int rateCoins = 0;
 	
 	private final Building1 building1;
 	private final Building2 building2;
@@ -45,12 +45,81 @@ public class Game
 		this.building9 = new Building9(level9);
 		this.building10 = new Building10(level10);
 		
-		this.rateCoins = claculateRateCoins(this.building1, this.building2, this.building3, this.building4, this.building5, this.building6, this.building7, this.building8, this.building9, this.building10);
+		claculateRateCoins();
 	}
 	
-	private float claculateRateCoins(Building1 building1, Building2 building2, Building3 building3, Building4 building4, Building5 building5, Building6 building6, Building7 building7, Building8 building8, Building9 building9, Building10 building10)
+	private void claculateRateCoins()
 	{
-		return building1.getCps() + building2.getCps() + building3.getCps() + building4.getCps() + building5.getCps() + building6.getCps() + building7.getCps() + building8.getCps() + building9.getCps() + building10.getCps() + 1;
+		this.rateCoins = this.building1.getCps() + this.building2.getCps() + this.building3.getCps() + this.building4.getCps() + this.building5.getCps() + this.building6.getCps() + this.building7.getCps() + this.building8.getCps() + this.building9.getCps() + this.building10.getCps() + 1;
+	}
+	
+	public boolean updateBuilding(int id)
+	{
+		boolean result = false;
+		
+		if (this.remainingTime > 0)
+		{
+			switch (id)
+			{
+				case 1:
+					result = increaseBuilding(this.building1);
+					break;
+				
+				case 2:
+					result = increaseBuilding(this.building2);
+					break;
+				
+				case 3:
+					result = increaseBuilding(this.building3);
+					break;
+				
+				case 4:
+					result = increaseBuilding(this.building4);
+					break;
+				
+				case 5:
+					result = increaseBuilding(this.building5);
+					break;
+				
+				case 6:
+					result = increaseBuilding(this.building6);
+					break;
+				
+				case 7:
+					result = increaseBuilding(this.building7);
+					break;
+				
+				case 8:
+					result = increaseBuilding(this.building8);
+					break;
+				
+				case 9:
+					result = increaseBuilding(this.building9);
+					break;
+				
+				case 10:
+					result = increaseBuilding(this.building10);
+					break;
+			}
+		}
+		
+		return result;
+	}
+	
+	private boolean increaseBuilding(Building building)
+	{
+		boolean result = false;
+		int nextPrice = building.getNextPrice();
+		
+		if (nextPrice <= this.totalCoins)
+		{
+			this.totalCoins -= nextPrice;
+			building.increase();
+			claculateRateCoins();
+			result = true;
+		}
+		
+		return result;
 	}
 	
 	public void update()
@@ -64,7 +133,7 @@ public class Game
 		return this.totalCoins;
 	}
 	
-	public float getRateCoins()
+	public int getRateCoins()
 	{
 		return this.rateCoins;
 	}

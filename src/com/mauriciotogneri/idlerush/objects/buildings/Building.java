@@ -4,16 +4,21 @@ public class Building
 {
 	private int level = 0;
 	private final long baseCost;
-	private final float baseCps;
+	private final int baseCps;
 	
 	// http://cookieclicker.wikia.com/wiki/Building
 	// http://cookieclicker.wikia.com/wiki/Upgrades
 	
-	protected Building(int level, long baseCost, float baseCps)
+	protected Building(int level, long baseCost, int baseCps)
 	{
 		this.level = level;
 		this.baseCost = baseCost;
 		this.baseCps = baseCps;
+	}
+	
+	public void increase()
+	{
+		this.level++;
 	}
 	
 	public int getLevel()
@@ -21,7 +26,7 @@ public class Building
 		return this.level;
 	}
 	
-	public float getBaseCps()
+	public int getBaseCps()
 	{
 		return this.baseCps;
 	}
@@ -31,7 +36,7 @@ public class Building
 		return (int)(this.baseCost * Math.pow(1.15f, this.level));
 	}
 	
-	public float getCps()
+	public int getCps()
 	{
 		return this.baseCps * this.level;
 	}

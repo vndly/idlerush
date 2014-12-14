@@ -9,8 +9,11 @@ import java.util.concurrent.TimeUnit;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import com.mauriciotogneri.idlerush.R;
 import com.mauriciotogneri.idlerush.objects.Game;
@@ -23,6 +26,7 @@ public class GameActivity extends Activity
 	private ScheduledFuture<?> scheduledTask = null;
 	
 	private Game game;
+	private final Object gameLock = new Object();
 	
 	private final NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
 	
@@ -38,21 +42,56 @@ public class GameActivity extends Activity
 		
 		this.executor = Executors.newScheduledThreadPool(1);
 		
-		initialize();
-	}
-	
-	private void initialize()
-	{
-		this.game = new Game(70, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+		this.game = new Game(70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		
 		updateUI();
+		
+		setIconListener(R.id.building_1_icon, 1);
+		setIconListener(R.id.building_2_icon, 2);
+		setIconListener(R.id.building_3_icon, 3);
+		setIconListener(R.id.building_4_icon, 4);
+		setIconListener(R.id.building_5_icon, 5);
+		setIconListener(R.id.building_6_icon, 6);
+		setIconListener(R.id.building_7_icon, 7);
+		setIconListener(R.id.building_8_icon, 8);
+		setIconListener(R.id.building_9_icon, 9);
+		setIconListener(R.id.building_10_icon, 10);
+	}
+	
+	private void setIconListener(int iconId, final int buildingId)
+	{
+		ImageButton buildingIcon = (ImageButton)findViewById(iconId);
+		buildingIcon.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View view)
+			{
+				updateBuilding(buildingId);
+			}
+		});
+	}
+	
+	private void updateBuilding(int id)
+	{
+		synchronized (this.gameLock)
+		{
+			boolean updated = this.game.updateBuilding(id);
+			
+			if (updated)
+			{
+				updateUI();
+			}
+		}
 	}
 	
 	private void update()
 	{
-		this.game.update();
-		
-		updateUI();
+		synchronized (this.gameLock)
+		{
+			this.game.update();
+			
+			updateUI();
+		}
 	}
 	
 	private void updateUI()

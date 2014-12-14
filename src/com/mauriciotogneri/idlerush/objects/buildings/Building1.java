@@ -4,6 +4,6 @@ public class Building1 extends Building
 {
 	public Building1(int level)
 	{
-		super(level, 15, 0.1f);
+		super(level, 15, 1);
 	}
 }

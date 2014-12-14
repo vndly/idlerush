@@ -46,6 +46,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_1_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_1" />
@@ -79,6 +80,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_2_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_2" />
@@ -112,6 +114,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_3_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_3" />
@@ -145,6 +148,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_4_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_4" />
@@ -178,6 +182,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_5_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_5" />
@@ -211,6 +216,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_6_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_6" />
@@ -244,6 +250,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_7_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_7" />
@@ -277,6 +284,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_8_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_8" />
@@ -310,6 +318,7 @@
             <TableRow style="@style/building_row" >
 
                 <ImageButton
+                    android:id="@+id/building_9_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_9" />
@@ -345,6 +354,7 @@
                 tools:ignore="TooManyViews" >
 
                 <ImageButton
+                    android:id="@+id/building_10_icon"
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
                     android:src="@drawable/icon_building_10" />
