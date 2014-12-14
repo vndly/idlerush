@@ -12,6 +12,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.mauriciotogneri.idlerush.R;
+import com.mauriciotogneri.idlerush.objects.Game;
+import com.mauriciotogneri.idlerush.objects.buildings.Building;
 
 public class GameActivity extends Activity
 {
@@ -19,11 +21,12 @@ public class GameActivity extends Activity
 	private ScheduledExecutorService executor = null;
 	private ScheduledFuture<?> scheduledTask = null;
 	
-	private int remainingTime = 0;
-	private long totalCoins = 0;
-	private int rateCoins = 0;
+	private Game game;
+	
+	private final NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
 	
 	// http://cookieclicker.wikia.com/wiki/Building
+	// http://cookieclicker.wikia.com/wiki/Upgrades
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -42,43 +45,60 @@ public class GameActivity extends Activity
 	
 	private void initialize()
 	{
-		this.remainingTime = 600;
-		
-		this.totalCoins = 1000;
-		this.rateCoins = 1234;
+		this.game = new Game(600, 1000, 1234, 6);
 		
 		updateUI();
 	}
 	
 	private void update()
 	{
-		this.totalCoins += this.rateCoins;
-		this.remainingTime--;
+		this.game.update();
 		
 		updateUI();
 	}
 	
 	private void updateUI()
 	{
-		NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
+		int remainingTime = this.game.getRemainingTime();
 		
-		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
-		totalCoinsLabel.setText(numberFormat.format(this.totalCoins));
-		
-		TextView rateCoinsLabel = (TextView)findViewById(R.id.rate_coins);
-		rateCoinsLabel.setText(numberFormat.format(this.rateCoins) + " / second");
-		
-		long millis = this.remainingTime * 1000;
+		long millis = remainingTime * 1000;
 		long hours = TimeUnit.MILLISECONDS.toHours(millis);
 		long minutes = TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis));
 		long seconds = TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis));
 		
 		setTitle("  " + String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds));
 		
-		if (this.remainingTime <= 0)
+		if (remainingTime <= 0)
 		{
 			gameFinished();
 		}
+		
+		// ---------------
+		
+		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
+		totalCoinsLabel.setText(this.numberFormat.format(this.game.getTotalCoins()));
+		
+		TextView rateCoinsLabel = (TextView)findViewById(R.id.rate_coins);
+		rateCoinsLabel.setText(this.numberFormat.format(this.game.getRateCoins()) + " / second");
+		
+		// ---------------
+		
+		updateBuildingUI(this.game.getBuilding1(), R.id.building_1_level, R.id.building_1_cost, R.id.building_1_total_production, R.id.building_1_production_unit);
+	}
+	
+	private void updateBuildingUI(Building building, int levelId, int costId, int totalProductionId, int productionUnitId)
+	{
+		TextView building1Count = (TextView)findViewById(levelId);
+		building1Count.setText(String.valueOf(building.getLevel()));
+		
+		TextView building1Cost = (TextView)findViewById(costId);
+		building1Cost.setText("Cost: " + this.numberFormat.format(building.getNextPrice()));
+		
+		TextView building1TotalProduction = (TextView)findViewById(totalProductionId);
+		building1TotalProduction.setText("Total: " + this.numberFormat.format(building.getCps()) + " / sec");
+		
+		TextView building1ProductionUnit = (TextView)findViewById(productionUnitId);
+		building1ProductionUnit.setText("Unit: " + this.numberFormat.format(building.getBaseCps()) + " / sec");
 	}
 	
 	private void gameFinished()

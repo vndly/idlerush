@@ -17,7 +17,6 @@
             android:id="@+id/total_coins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="123,456,789"
             android:textColor="@color/default_text_color"
             android:textSize="30sp" />
 
@@ -26,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="1,234 / second"
             android:textColor="@color/default_text_color"
             android:textSize="18sp" />
     </LinearLayout>
@@ -50,11 +48,11 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_cursor" />
+                    android:src="@drawable/icon_building_1" />
 
                 <TextView
-                    style="@style/building_count"
-                    android:text="15" />
+                    android:id="@+id/building_1_level"
+                    style="@style/building_count" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -63,16 +61,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_1_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_1_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_1_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -83,7 +81,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_grandma" />
+                    android:src="@drawable/icon_building_2" />
 
                 <TextView
                     style="@style/building_count"
@@ -116,7 +114,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_farm" />
+                    android:src="@drawable/icon_building_3" />
 
                 <TextView
                     style="@style/building_count"
@@ -141,7 +139,7 @@
                         android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
-            
+
             <View style="@style/view_separator" />
 
             <TableRow style="@style/building_row" >
@@ -149,7 +147,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_factory" />
+                    android:src="@drawable/icon_building_4" />
 
                 <TextView
                     style="@style/building_count"
@@ -174,7 +172,7 @@
                         android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
-            
+
             <View style="@style/view_separator" />
 
             <TableRow style="@style/building_row" >
@@ -182,7 +180,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_mine" />
+                    android:src="@drawable/icon_building_5" />
 
                 <TextView
                     style="@style/building_count"
@@ -207,7 +205,7 @@
                         android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
-            
+
             <View style="@style/view_separator" />
 
             <TableRow style="@style/building_row" >
@@ -215,7 +213,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_shipment" />
+                    android:src="@drawable/icon_building_6" />
 
                 <TextView
                     style="@style/building_count"
@@ -240,7 +238,7 @@
                         android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
-            
+
             <View style="@style/view_separator" />
 
             <TableRow style="@style/building_row" >
@@ -248,7 +246,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_alchemy_lab" />
+                    android:src="@drawable/icon_building_7" />
 
                 <TextView
                     style="@style/building_count"
@@ -273,7 +271,7 @@
                         android:text="Unit: 1,152 / sec" />
                 </LinearLayout>
             </TableRow>
-            
+
             <View style="@style/view_separator" />
 
             <TableRow style="@style/building_row" >
@@ -281,7 +279,7 @@
                 <ImageButton
                     style="@style/building_icon"
                     android:contentDescription="@string/image_description"
-                    android:src="@drawable/icon_portal" />
+                    android:src="@drawable/icon_building_8" />
 
                 <TextView
                     style="@style/building_count"
