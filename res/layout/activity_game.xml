@@ -24,7 +24,6 @@
             android:id="@+id/rate_coins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
             android:textColor="@color/default_text_color"
             android:textSize="18sp" />
     </LinearLayout>
