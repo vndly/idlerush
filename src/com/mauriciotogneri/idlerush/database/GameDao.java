@@ -22,7 +22,21 @@ public class GameDao
 	private static final String COLUMN_BUILDING_9 = "building_9";
 	private static final String COLUMN_BUILDING_10 = "building_10";
 	
-	public static final String TABLE_CREATE = "CREATE TABLE " + GameDao.TABLE_NAME + " (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, type TEXT NOT NULL, quantity INTEGER NOT NULL, selected BOOLEAN NOT NULL);";
+	public static final String TABLE_CREATE = "CREATE TABLE IF NOT EXISTS " + GameDao.TABLE_NAME + " (" + //
+	    GameDao.COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " + //
+	    GameDao.COLUMN_TIME + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_COINS + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_1 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_2 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_3 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_4 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_5 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_6 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_7 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_8 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_9 + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_BUILDING_10 + " INTEGER NOT NULL" + //
+	    ");";
 	
 	public Game getGame(int gameId)
 	{
