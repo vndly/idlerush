@@ -52,7 +52,7 @@
 
                 <TextView
                     android:id="@+id/building_1_level"
-                    style="@style/building_count" />
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -84,8 +84,8 @@
                     android:src="@drawable/icon_building_2" />
 
                 <TextView
-                    style="@style/building_count"
-                    android:text="21" />
+                    android:id="@+id/building_2_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -94,16 +94,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_2_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_2_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_2_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -117,8 +117,8 @@
                     android:src="@drawable/icon_building_3" />
 
                 <TextView
-                    style="@style/building_count"
-                    android:text="107" />
+                    android:id="@+id/building_3_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -127,16 +127,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_3_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_3_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_3_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -150,8 +150,8 @@
                     android:src="@drawable/icon_building_4" />
 
                 <TextView
-                    style="@style/building_count"
-                    android:text="0" />
+                    android:id="@+id/building_4_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -160,16 +160,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_4_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_4_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_4_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -183,7 +183,7 @@
                     android:src="@drawable/icon_building_5" />
 
                 <TextView
-                    style="@style/building_count"
+                    style="@style/building_level"
                     android:text="21" />
 
                 <LinearLayout
@@ -216,7 +216,7 @@
                     android:src="@drawable/icon_building_6" />
 
                 <TextView
-                    style="@style/building_count"
+                    style="@style/building_level"
                     android:text="21" />
 
                 <LinearLayout
@@ -249,7 +249,7 @@
                     android:src="@drawable/icon_building_7" />
 
                 <TextView
-                    style="@style/building_count"
+                    style="@style/building_level"
                     android:text="21" />
 
                 <LinearLayout
@@ -282,7 +282,7 @@
                     android:src="@drawable/icon_building_8" />
 
                 <TextView
-                    style="@style/building_count"
+                    style="@style/building_level"
                     android:text="21" />
 
                 <LinearLayout

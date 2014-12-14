@@ -25,9 +25,6 @@ public class GameActivity extends Activity
 	
 	private final NumberFormat numberFormat = NumberFormat.getInstance(Locale.getDefault());
 	
-	// http://cookieclicker.wikia.com/wiki/Building
-	// http://cookieclicker.wikia.com/wiki/Upgrades
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -45,7 +42,7 @@ public class GameActivity extends Activity
 	
 	private void initialize()
 	{
-		this.game = new Game(600, 1000, 1234, 6);
+		this.game = new Game(600, 1000, 1234, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		
 		updateUI();
 	}
@@ -84,6 +81,8 @@ public class GameActivity extends Activity
 		// ---------------
 		
 		updateBuildingUI(this.game.getBuilding1(), R.id.building_1_level, R.id.building_1_cost, R.id.building_1_total_production, R.id.building_1_production_unit);
+		updateBuildingUI(this.game.getBuilding2(), R.id.building_2_level, R.id.building_2_cost, R.id.building_2_total_production, R.id.building_2_production_unit);
+		updateBuildingUI(this.game.getBuilding3(), R.id.building_3_level, R.id.building_3_cost, R.id.building_3_total_production, R.id.building_3_production_unit);
 	}
 	
 	private void updateBuildingUI(Building building, int levelId, int costId, int totalProductionId, int productionUnitId)
