@@ -42,7 +42,7 @@ public class GameActivity extends Activity
 	
 	private void initialize()
 	{
-		this.game = new Game(600, 1000, 1234, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		this.game = new Game(600, 1000, 1234, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		
 		updateUI();
 	}
@@ -83,6 +83,13 @@ public class GameActivity extends Activity
 		updateBuildingUI(this.game.getBuilding1(), R.id.building_1_level, R.id.building_1_cost, R.id.building_1_total_production, R.id.building_1_production_unit);
 		updateBuildingUI(this.game.getBuilding2(), R.id.building_2_level, R.id.building_2_cost, R.id.building_2_total_production, R.id.building_2_production_unit);
 		updateBuildingUI(this.game.getBuilding3(), R.id.building_3_level, R.id.building_3_cost, R.id.building_3_total_production, R.id.building_3_production_unit);
+		updateBuildingUI(this.game.getBuilding4(), R.id.building_4_level, R.id.building_4_cost, R.id.building_4_total_production, R.id.building_4_production_unit);
+		updateBuildingUI(this.game.getBuilding5(), R.id.building_5_level, R.id.building_5_cost, R.id.building_5_total_production, R.id.building_5_production_unit);
+		updateBuildingUI(this.game.getBuilding6(), R.id.building_6_level, R.id.building_6_cost, R.id.building_6_total_production, R.id.building_6_production_unit);
+		updateBuildingUI(this.game.getBuilding7(), R.id.building_7_level, R.id.building_7_cost, R.id.building_7_total_production, R.id.building_7_production_unit);
+		updateBuildingUI(this.game.getBuilding8(), R.id.building_8_level, R.id.building_8_cost, R.id.building_8_total_production, R.id.building_8_production_unit);
+		updateBuildingUI(this.game.getBuilding9(), R.id.building_9_level, R.id.building_9_cost, R.id.building_9_total_production, R.id.building_9_production_unit);
+		updateBuildingUI(this.game.getBuilding10(), R.id.building_10_level, R.id.building_10_cost, R.id.building_10_total_production, R.id.building_10_production_unit);
 	}
 	
 	private void updateBuildingUI(Building building, int levelId, int costId, int totalProductionId, int productionUnitId)

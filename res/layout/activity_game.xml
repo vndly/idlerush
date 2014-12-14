@@ -32,7 +32,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#444444" />
+        android:background="@color/default_separator_color" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -183,8 +183,8 @@
                     android:src="@drawable/icon_building_5" />
 
                 <TextView
-                    style="@style/building_level"
-                    android:text="21" />
+                    android:id="@+id/building_5_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -193,16 +193,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_5_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_5_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_5_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -216,8 +216,8 @@
                     android:src="@drawable/icon_building_6" />
 
                 <TextView
-                    style="@style/building_level"
-                    android:text="21" />
+                    android:id="@+id/building_6_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -226,16 +226,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_6_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_6_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_6_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -249,8 +249,8 @@
                     android:src="@drawable/icon_building_7" />
 
                 <TextView
-                    style="@style/building_level"
-                    android:text="21" />
+                    android:id="@+id/building_7_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -259,16 +259,16 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_7_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_7_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_7_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
 
@@ -282,8 +282,8 @@
                     android:src="@drawable/icon_building_8" />
 
                 <TextView
-                    style="@style/building_level"
-                    android:text="21" />
+                    android:id="@+id/building_8_level"
+                    style="@style/building_level" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -292,16 +292,84 @@
                     android:orientation="vertical" >
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Cost: 234,567" />
+                        android:id="@+id/building_8_cost"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Total: 3,456 / sec" />
+                        android:id="@+id/building_8_total_production"
+                        style="@style/building_row_line" />
 
                     <TextView
-                        style="@style/building_row_line"
-                        android:text="Unit: 1,152 / sec" />
+                        android:id="@+id/building_8_production_unit"
+                        style="@style/building_row_line" />
+                </LinearLayout>
+            </TableRow>
+
+            <View style="@style/view_separator" />
+
+            <TableRow style="@style/building_row" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_building_9" />
+
+                <TextView
+                    android:id="@+id/building_9_level"
+                    style="@style/building_level" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/building_9_cost"
+                        style="@style/building_row_line" />
+
+                    <TextView
+                        android:id="@+id/building_9_total_production"
+                        style="@style/building_row_line" />
+
+                    <TextView
+                        android:id="@+id/building_9_production_unit"
+                        style="@style/building_row_line" />
+                </LinearLayout>
+            </TableRow>
+
+            <View style="@style/view_separator" />
+
+            <TableRow
+                style="@style/building_row"
+                tools:ignore="TooManyViews" >
+
+                <ImageButton
+                    style="@style/building_icon"
+                    android:contentDescription="@string/image_description"
+                    android:src="@drawable/icon_building_10" />
+
+                <TextView
+                    android:id="@+id/building_10_level"
+                    style="@style/building_level" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/building_10_cost"
+                        style="@style/building_row_line" />
+
+                    <TextView
+                        android:id="@+id/building_10_total_production"
+                        style="@style/building_row_line" />
+
+                    <TextView
+                        android:id="@+id/building_10_production_unit"
+                        style="@style/building_row_line" />
                 </LinearLayout>
             </TableRow>
         </TableLayout>
