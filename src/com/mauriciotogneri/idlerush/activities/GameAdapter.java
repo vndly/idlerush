@@ -41,6 +41,9 @@ public class GameAdapter extends ArrayAdapter<Game>
 		TextView remainingTime = (TextView)convertView.findViewById(R.id.remaining_time);
 		remainingTime.setText(game.getRemainingTimeFormatted());
 		
+		TextView currentCoins = (TextView)convertView.findViewById(R.id.current_coins);
+		currentCoins.setText(this.numberFormat.format(game.getCurrentCoins()));
+		
 		TextView totalCoins = (TextView)convertView.findViewById(R.id.total_coins);
 		totalCoins.setText(this.numberFormat.format(game.getTotalCoins()));
 		

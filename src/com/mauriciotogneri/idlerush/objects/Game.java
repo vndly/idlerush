@@ -21,6 +21,7 @@ public class Game
 	
 	private int remainingTime = 0;
 	private long totalCoins = 0;
+	private long currentCoins = 0;
 	private int rateCoins = 0;
 	
 	private final Building1 building1;
@@ -34,13 +35,14 @@ public class Game
 	private final Building9 building9;
 	private final Building10 building10;
 	
-	public Game(int id, int gameMode, int remainingTime, long totalCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
+	public Game(int id, int gameMode, int remainingTime, long totalCoins, long currentCoins, int level1, int level2, int level3, int level4, int level5, int level6, int level7, int level8, int level9, int level10)
 	{
 		this.id = id;
 		this.gameMode = new GameMode(gameMode);
 		
 		this.remainingTime = remainingTime;
 		this.totalCoins = totalCoins;
+		this.currentCoins = currentCoins;
 		
 		this.building1 = new Building1(level1);
 		this.building2 = new Building2(level2);
@@ -124,9 +126,9 @@ public class Game
 		boolean result = false;
 		long nextPrice = building.getNextPrice();
 		
-		if (nextPrice <= this.totalCoins)
+		if (nextPrice <= this.currentCoins)
 		{
-			this.totalCoins -= nextPrice;
+			this.currentCoins -= nextPrice;
 			building.increase();
 			claculateRateCoins();
 			result = true;
@@ -137,8 +139,14 @@ public class Game
 	
 	public void update()
 	{
+		this.currentCoins += this.rateCoins;
 		this.totalCoins += this.rateCoins;
 		this.remainingTime--;
+	}
+	
+	public long getCurrentCoins()
+	{
+		return this.currentCoins;
 	}
 	
 	public long getTotalCoins()

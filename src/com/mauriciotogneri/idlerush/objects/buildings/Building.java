@@ -33,7 +33,14 @@ public class Building
 	
 	public long getNextPrice()
 	{
-		return (long)(this.baseCost * Math.pow(1.15f, this.level));
+		if (this.level == 0)
+		{
+			return this.baseCost;
+		}
+		else
+		{
+			return (long)(this.baseCost * Math.pow(1.15f, this.level));
+		}
 	}
 	
 	public int getCps()

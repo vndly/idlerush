@@ -121,11 +121,14 @@ public class GameActivity extends Activity
 		
 		// ---------------
 		
-		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
-		totalCoinsLabel.setText(this.numberFormat.format(this.game.getTotalCoins()));
+		TextView currentCoinsLabel = (TextView)findViewById(R.id.current_coins);
+		currentCoinsLabel.setText(this.numberFormat.format(this.game.getCurrentCoins()));
 		
 		TextView rateCoinsLabel = (TextView)findViewById(R.id.rate_coins);
 		rateCoinsLabel.setText(this.numberFormat.format(this.game.getRateCoins()) + " / second");
+		
+		TextView totalCoinsLabel = (TextView)findViewById(R.id.total_coins);
+		totalCoinsLabel.setText(this.numberFormat.format(this.game.getTotalCoins()));
 		
 		// ---------------
 		

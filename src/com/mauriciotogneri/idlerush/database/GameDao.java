@@ -13,7 +13,8 @@ public class GameDao
 	private static final String COLUMN_ID = "id";
 	private static final String COLUMN_MODE = "mode";
 	private static final String COLUMN_TIME = "time";
-	private static final String COLUMN_COINS = "coins";
+	private static final String COLUMN_TOTAL_COINS = "total_coins";
+	private static final String COLUMN_CURRENT_COINS = "current_coins";
 	private static final String COLUMN_BUILDING_1 = "building_1";
 	private static final String COLUMN_BUILDING_2 = "building_2";
 	private static final String COLUMN_BUILDING_3 = "building_3";
@@ -29,7 +30,8 @@ public class GameDao
 	    GameDao.COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " + //
 	    GameDao.COLUMN_MODE + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_TIME + " INTEGER NOT NULL, " + //
-	    GameDao.COLUMN_COINS + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_TOTAL_COINS + " INTEGER NOT NULL, " + //
+	    GameDao.COLUMN_CURRENT_COINS + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_BUILDING_1 + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_BUILDING_2 + " INTEGER NOT NULL, " + //
 	    GameDao.COLUMN_BUILDING_3 + " INTEGER NOT NULL, " + //
@@ -58,7 +60,8 @@ public class GameDao
 				    GameDao.COLUMN_ID, //
 				    GameDao.COLUMN_MODE, //
 				    GameDao.COLUMN_TIME, //
-				    GameDao.COLUMN_COINS, //
+				    GameDao.COLUMN_TOTAL_COINS, //
+				    GameDao.COLUMN_CURRENT_COINS, //
 				    GameDao.COLUMN_BUILDING_1, //
 				    GameDao.COLUMN_BUILDING_2, //
 				    GameDao.COLUMN_BUILDING_3, //
@@ -114,7 +117,8 @@ public class GameDao
 				    GameDao.COLUMN_ID, //
 				    GameDao.COLUMN_MODE, //
 				    GameDao.COLUMN_TIME, //
-				    GameDao.COLUMN_COINS, //
+				    GameDao.COLUMN_TOTAL_COINS, //
+				    GameDao.COLUMN_CURRENT_COINS, //
 				    GameDao.COLUMN_BUILDING_1, //
 				    GameDao.COLUMN_BUILDING_2, //
 				    GameDao.COLUMN_BUILDING_3, //
@@ -156,19 +160,20 @@ public class GameDao
 		int id = cursor.getInt(0);
 		int mode = cursor.getInt(1);
 		int time = cursor.getInt(2);
-		long coins = cursor.getLong(3);
-		int building1 = cursor.getInt(4);
-		int building2 = cursor.getInt(5);
-		int building3 = cursor.getInt(6);
-		int building4 = cursor.getInt(7);
-		int building5 = cursor.getInt(8);
-		int building6 = cursor.getInt(9);
-		int building7 = cursor.getInt(10);
-		int building8 = cursor.getInt(11);
-		int building9 = cursor.getInt(12);
-		int building10 = cursor.getInt(13);
+		long totalCoins = cursor.getLong(3);
+		long currentCoins = cursor.getLong(4);
+		int building1 = cursor.getInt(5);
+		int building2 = cursor.getInt(6);
+		int building3 = cursor.getInt(7);
+		int building4 = cursor.getInt(8);
+		int building5 = cursor.getInt(9);
+		int building6 = cursor.getInt(10);
+		int building7 = cursor.getInt(11);
+		int building8 = cursor.getInt(12);
+		int building9 = cursor.getInt(13);
+		int building10 = cursor.getInt(14);
 		
-		return new Game(id, mode, time, coins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
+		return new Game(id, mode, time, totalCoins, currentCoins, building1, building2, building3, building4, building5, building6, building7, building8, building9, building10);
 	}
 	
 	public boolean updateGame(Game game)
@@ -183,7 +188,8 @@ public class GameDao
 			ContentValues values = new ContentValues();
 			values.put(GameDao.COLUMN_MODE, game.getGameMode().time);
 			values.put(GameDao.COLUMN_TIME, game.getRemainingTime());
-			values.put(GameDao.COLUMN_COINS, game.getTotalCoins());
+			values.put(GameDao.COLUMN_TOTAL_COINS, game.getTotalCoins());
+			values.put(GameDao.COLUMN_CURRENT_COINS, game.getCurrentCoins());
 			values.put(GameDao.COLUMN_BUILDING_1, game.getBuilding1().getLevel());
 			values.put(GameDao.COLUMN_BUILDING_2, game.getBuilding2().getLevel());
 			values.put(GameDao.COLUMN_BUILDING_3, game.getBuilding3().getLevel());
@@ -230,7 +236,8 @@ public class GameDao
 			ContentValues values = new ContentValues();
 			values.put(GameDao.COLUMN_MODE, time);
 			values.put(GameDao.COLUMN_TIME, time);
-			values.put(GameDao.COLUMN_COINS, 0);
+			values.put(GameDao.COLUMN_TOTAL_COINS, 0);
+			values.put(GameDao.COLUMN_CURRENT_COINS, 0);
 			values.put(GameDao.COLUMN_BUILDING_1, 0);
 			values.put(GameDao.COLUMN_BUILDING_2, 0);
 			values.put(GameDao.COLUMN_BUILDING_3, 0);
@@ -246,7 +253,7 @@ public class GameDao
 			
 			if (id > 0)
 			{
-				result = new Game(id, time, time, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+				result = new Game(id, time, time, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 			}
 		}
 		catch (Exception e)
